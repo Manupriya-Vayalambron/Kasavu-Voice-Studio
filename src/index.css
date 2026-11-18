@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #faf8f3;
+    color: #1c1917;
+  }
+
+  h1,
+  h2,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes kasavuPulseStroke {
+  0%,
+  100% {
+    stroke-opacity: 1;
+    stroke-width: 5;
+  }
+  50% {
+    stroke-opacity: 0.35;
+    stroke-width: 8;
+  }
+}
+
+@keyframes kasavuBadgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.region-pulse-outline {
+  animation: kasavuPulseStroke 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.region-badge-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kasavuBadgePulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .region-pulse-outline,
+  .region-badge-pulse {
+    animation: none;
+  }
+}

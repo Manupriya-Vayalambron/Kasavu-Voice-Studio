@@ -1,0 +1,6 @@
+{
+  "name": "Kasavu Voice Studio",
+  "description": "Colour traditional Kerala kasavu sarees and mundus with your voice using Malayalam colour commands.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
