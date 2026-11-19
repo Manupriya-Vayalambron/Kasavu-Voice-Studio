@@ -32,7 +32,7 @@ const LABEL_COLOUR_MAP: Record<
   Ponnu:   { label: "Ponnu",   english: "Gold",   hex: "#D4AF37", textHex: "#1C1917" },
 };
 
-const CONFIDENCE_THRESHOLD = 0.9;
+const CONFIDENCE_THRESHOLD = 0.85;
 const TRIGGER_COOLDOWN_MS = 1000;
 
 interface SpeechCommandsResult {
@@ -313,7 +313,7 @@ export default function App() {
             });
           }
 
-          // Trigger colour fill when confidence > 0.9 and not in 1-second cooldown
+          // Trigger colour fill when confidence > 0.85 and not in 1-second cooldown
           if (bestScore > CONFIDENCE_THRESHOLD && !isCooldownRef.current) {
             const regions = GARMENT_REGIONS[garmentRef.current];
             if (activeIndexRef.current < regions.length) {
@@ -785,7 +785,7 @@ export default function App() {
                     </h2>
                     <p className="text-xs text-[#57534E]">
                       {micStatus === 'listening'
-                        ? 'Speak clearly · Triggers above 0.90 confidence'
+                        ? 'Speak clearly · Triggers above 0.85 confidence'
                         : 'Tap Resume Mic or colour with swatches below'}
                     </p>
                   </div>
@@ -813,7 +813,7 @@ export default function App() {
                     Last heard word
                   </span>
                   <span className="font-mono text-xs text-[#57534E] tabular-nums">
-                    Threshold: 0.90
+                    Threshold: 0.85
                   </span>
                 </div>
 
@@ -845,7 +845,7 @@ export default function App() {
                       </span>
                     </div>
 
-                    {/* Confidence bar with 0.90 threshold marker */}
+                    {/* Confidence bar with 0.85 threshold marker */}
                     <div className="relative h-2 w-full bg-[#E7E2D8] rounded-full overflow-hidden">
                       <div
                         className="h-full transition-all duration-150 rounded-full"
